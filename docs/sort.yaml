@@ -1,0 +1,51 @@
+description: "Метод для получения всех спортивных состязаний"
+consumes:
+  - application/json
+produces:
+  - application/json
+summary: Получить все спортивные соревнования
+parameters:
+  - name: sort_by
+    in: query
+    required: true
+    type: string
+    description: "Поле по которому выполнить сортировку. Возможные варианты: name, duration, location, participants, 
+    year."
+  - name: order
+    in: query
+    required: false
+    type: string
+    enum: ["asc", "desc"]
+    default: "asc"
+    description: "Порядок сортировки. По умолчанию по возрастанию (asc). Используйте 'desc' для сортировки по убыванию."
+responses:
+  200:
+    description: Список всех спортивных состязаний
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/Sport'
+  500:
+    description: Internal Server Error
+definitions:
+  Sport:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Уникальный идентификатор спортивного соревнования
+      name:
+        type: string
+        description: Наименование
+      duration:
+        type: integer
+        description: Длительность (в часах)
+      location:
+        type: string
+        description: Место проведения
+      participants:
+        type: integer
+        description: Число участников
+      year:
+        type: integer
+        description: Год

@@ -1,0 +1,41 @@
+description: "Метод для добавления нового спортивного состязания"
+consumes:
+  - application/json
+produces:
+  - application/json
+summary: Добавить новое спортивное соревнование
+parameters:
+  - in: body
+    name: sport
+    description: Данные спортивного состязания
+    schema:
+      $ref: '#/definitions/Sport'
+responses:
+    201:
+      description: Спортивное состязание успешно добавлено
+    400:
+      description: Invalid request data
+    500:
+      description: Internal Server Error
+definitions:
+  Sport:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Уникальный идентификатор спортивного соревнования
+      name:
+        type: string
+        description: Наименование
+      duration:
+        type: integer
+        description: Длительность (в часах)
+      location:
+        type: string
+        description: Место проведения
+      participants:
+        type: integer
+        description: Число участников
+      year:
+        type: integer
+        description: Год

@@ -1,0 +1,49 @@
+summary: Обновить спортивное соревнование
+description: Обновить спортивное соревнование по ID
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - in: path
+    name: sport_id
+    description: ID спортивного соревнования
+    required: true
+    type: integer
+  - in: body
+    name: data
+    description: Обновляет спортивное соревнование
+    required: true
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+        duration:
+          type: integer
+        location:
+          type: string
+        participants:
+          type: integer
+        year:
+          type: integer
+responses:
+  200:
+    description: Спортивное соревнование успешно обновлено
+    schema:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        duration:
+          type: integer
+        location:
+          type: string
+        participants:
+          type: integer
+        year:
+          type: integer
+  404:
+    description: Спортивное соревнование не найдено

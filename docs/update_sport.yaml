@@ -1,0 +1,36 @@
+description: "Метод для обновления данных по спортивному соревнованию"
+consumes:
+  - application/json
+produces:
+  - application/json
+summary: Обновить спортивное соревнование по ID
+parameters:
+  - in: path
+    name: sport_id
+    required: true
+    type: integer
+  - in: formData
+    name: name
+    required: true
+    type: string
+  - in: formData
+    name: duration
+    required: true
+    type: integer
+  - in: formData
+    name: location
+    required: true
+    type: string
+  - in: formData
+    name: participants
+    required: true
+    type: integer
+  - in: formData
+    name: year
+    required: true
+    type: integer
+responses:
+  200:
+    description: Спортивное соревнование успешно обновлено
+  404:
+    description: Спортивное соревнование не найдено

@@ -1,0 +1,51 @@
+summary: Получить агрегацию по спортивным соревнованиям
+description:  Среднее, максимальное и минимальное значение по году, числу участников и длительности
+consumes:
+  - application/json
+produces:
+  - application/json
+responses:
+  200:
+    description: Аггрегация
+    schema:
+      type: object
+      properties:
+        duration:
+          type: object
+          properties:
+            min:
+              type: integer
+              description: Минимальная длительность
+            max:
+              type: integer
+              description: Максимальная длительность
+            avg:
+              type: integer
+              description: Средняя длительность
+        year:
+          type: object
+          properties:
+            min:
+              type: integer
+              description: Минимальный год
+            max:
+              type: integer
+              description: Максимальный год
+            avg:
+              type: integer
+              description: Средний год
+
+        participants:
+          type: object
+          properties:
+            min:
+              type: integer
+              description: Минимальное количество участников
+            max:
+              type: integer
+              description: Максимальный количество участников
+            avg:
+              type: integer
+              description: Среднее количество участников
+  500:
+    description: Internal Server Error

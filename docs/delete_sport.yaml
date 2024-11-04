@@ -1,0 +1,16 @@
+summary: Удаление спортивного соревнования
+description: Удаление спортивного соревнования по его ID
+consumes:
+  - application/json
+produces:
+  - application/json
+parameters:
+  - name: music_id
+    in: path
+    required: true
+    type: integer
+responses:
+  200:
+    description: Спортивное соревнование успешно удалено
+  404:
+    description: Спортивное соревнование не найдено
